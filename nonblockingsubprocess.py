@@ -56,10 +56,9 @@ class NonBlockingSubprocess(object):
 
         # you must have a callback here
         fd_callback = functools.partial(self.__poll_handler, callback=callback)
-        self.ioloop.add_handler(self.fh, fd_callback, self.ioloop.READ)
+        self.ioloop.add_handler(fh.fileno(), fd_callback, self.ioloop.READ)
 
-    def __poll_handler(self, fh, event, callback=None):
-        fd = fh.fileno()
+    def __poll_handler(self, fd, event, callback=None):
         if self.pipe.poll() is not None:
             # event finished
             self.ioloop.remove_handler(fd)
