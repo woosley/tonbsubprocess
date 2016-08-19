@@ -1,6 +1,6 @@
 """ NonBlockingSubprocess: the nonblocking subprocess for tornado.
 Usage:
-    res = yield gen.Task(NonBlockingSubprocess(ioloop, cmd).loop)
+    res = yield gen.Task(NonBlockingSubprocess(cmd).loop)
     result = res.gather_response()
     print result['data']
     print result['success']
@@ -32,7 +32,7 @@ from tornado.ioloop import IOLoop
 class NonBlockingSubprocess(object):
     """A non blocking subprocess handler"""
 
-    def __init__(self, cmd):
+    def __init__(self, cmd, ioloop=None):
 
         self.start_time = time.time()
         self.pipe = subprocess.Popen(cmd,
@@ -42,7 +42,7 @@ class NonBlockingSubprocess(object):
                                      stderr=subprocess.STDOUT,
                                      close_fds=True)
         self.cmd = cmd
-        self.ioloop = IOLoop.instance()
+        self.ioloop = ioloop or IOLoop.current()
         self.data = ""
 
     def loop(self, callback=None):
