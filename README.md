@@ -3,7 +3,8 @@
 a non-blocking subprocess lib for tornado
 
 ## Usage
-```
+
+```python
 from nbsubprocess import NonBlockingSubprocess
 from tornado.gen import Task, coroutine
 
