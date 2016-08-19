@@ -2,7 +2,7 @@ import time
 from tornado import gen
 from tornado.testing import AsyncTestCase, gen_test
 from tornado.ioloop import IOLoop
-from nbsubprocess import NonBlockingSubprocess
+from tonbsubprocess import NonBlockingSubprocess
 
 
 class TestSubprocess(NonBlockingSubprocess):
