@@ -1,7 +1,7 @@
 import logging
 from tornado import gen
 from tornado.ioloop import IOLoop
-from nbsuprocess import NonBlockingSubprocess
+from tonbsuprocess import NonBlockingSubprocess
 
 class SSH(object):
     """ a NonBlocking ssh interface."""
