@@ -1,3 +1,0 @@
-a non-blocking subprocess lib for tornado
-
-nose test.py
