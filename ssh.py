@@ -1,7 +1,7 @@
 import logging
 from tornado import gen
 from tornado.ioloop import IOLoop
-from Panda.NonBlockingSubprocess import NonBlockingSubprocess
+from nbsuprocess import NonBlockingSubprocess
 
 class SSH(object):
     """ a NonBlocking ssh interface."""
